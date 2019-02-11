@@ -3,12 +3,16 @@ package org.dispatcher.loader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class DefaultLoader extends Loader
 {
+    private final Logger LOG = Logger.getLogger(this.getClass());
 
     @Override
     List<Object> loader()
     {
+        LOG.debug("DefaultLoader loader");
         List<Object> tasks = new ArrayList<Object>();
 
         return tasks;
@@ -17,14 +21,14 @@ public class DefaultLoader extends Loader
     @Override
     void markAsRunning(List<Object> obj)
     {
-        // TODO Auto-generated method stub
+        LOG.debug("DefaultLoader markAsRunning");
 
     }
 
     @Override
     void revertAsToRun(List<Object> obj)
     {
-        // TODO Auto-generated method stub
+        LOG.debug("DefaultLoader revertAsToRun");
 
     }
 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.dispatcher.loader.DefaultLoader;
 import org.dispatcher.loader.Loader;
 
 public class ThdPools
@@ -28,10 +29,10 @@ public class ThdPools
                 }
             }
 
-    static
+            static
             {
 
-    }
+            }
 
             private ThdPools()
             {
@@ -45,6 +46,11 @@ public class ThdPools
             public Thread initLoader()
             {
                 Loader loader = (Loader) loadMap.get("");
+
+        if (loader == null)
+                {
+                    loader = new DefaultLoader();
+                }
 
                 return getLoader(loader);
             }
